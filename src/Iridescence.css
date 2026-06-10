@@ -1,0 +1,17 @@
+.iridescence-container {
+  position: fixed; /* Keeps it locked to the screen viewport */
+  top: 0;
+  left: 0;
+  width: 100vw; /* 100% of the viewport width */
+  height: 100vh; /* 100% of the viewport height */
+  z-index: -1; /* Pushes the animation behind your HTML text */
+  overflow: hidden;
+  background-color: #000; /* Fallback color so you know it's there */
+}
+
+/* Ensure the WebGL canvas inside it scales properly too */
+.iridescence-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
