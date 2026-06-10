@@ -4,16 +4,21 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "node src/index.js",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "server": "nodemon server.js"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.0",
     "axios": "^1.17.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
     "framer-motion": "^12.40.0",
     "jquery": "^4.0.0",
+    "mongoose": "^9.7.0",
     "ogl": "^1.0.11",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
@@ -35,6 +40,10 @@
     "tailwindcss@4.3.0": true,
     "@tailwindcss/vite@4.3.0": true,
     "jquery@4.0.0": true,
-    "axios@1.17.0": true
+    "axios@1.17.0": true,
+    "express@5.2.1": true,
+    "express@4.16.4": true,
+    "mongoose@9.7.0": true,
+    "dotenv@17.4.2": true
   }
 }
