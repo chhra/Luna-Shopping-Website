@@ -25,6 +25,7 @@ function Header() {
               <a href="#about">About</a>
             </motion.li>
           </Link>
+
           <Link to="/signup">
             <motion.li
               whileHover={{
@@ -35,16 +36,17 @@ function Header() {
               <a href="/signup">Sign up</a>
             </motion.li>
           </Link>
-          <motion.li
-            whileHover={{
-              scale: 1.1,
+          <Link to="/Login">
+            <motion.li
+              whileHover={{
+                scale: 1.1,
 
-              textShadow: "0px 0px 8px #ff9ffc",
-            }}
-          >
-            <a href="/Login">Login</a>
-          </motion.li>
-
+                textShadow: "0px 0px 8px #ff9ffc",
+              }}
+            >
+              <a href="/Login">Login</a>
+            </motion.li>
+          </Link>
           <motion.li
             whileHover={{
               scale: 1.1,
