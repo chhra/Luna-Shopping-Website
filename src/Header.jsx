@@ -42,7 +42,7 @@ function Header() {
               textShadow: "0px 0px 8px #ff9ffc",
             }}
           >
-            <a href="#Login">Login</a>
+            <a href="/Login">Login</a>
           </motion.li>
 
           <motion.li

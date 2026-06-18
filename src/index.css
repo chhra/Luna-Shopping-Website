@@ -73,6 +73,7 @@ hr {
 
 /*REGISTRATION FORM STYLING*/
 
+.main h2,
 label {
   display: block;
   margin-bottom: 5px;
@@ -85,7 +86,7 @@ input[type="password"],
 select {
   width: 100%;
   margin-bottom: 15px;
-  padding: 10px;
+  padding: 5px;
   box-sizing: border-box;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -112,9 +113,13 @@ button[type="submit"] {
 form {
   display: flex;
   flex-direction: column;
-}
+  padding: 40px;
 
-.main h2 {
-  color: #4caf50;
-  margin-bottom: 20px;
+  /* the frosted glass effect */
+  background: rgba(255, 255, 255, 0.15); /* semi-transparent white */
+  backdrop-filter: blur(10px); /* blurs whatever is behind */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }

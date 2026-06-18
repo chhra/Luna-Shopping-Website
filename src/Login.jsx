@@ -2,17 +2,11 @@ import React from "react";
 import Iridescence from "./Iridescence.jsx";
 import Header from "./Header.jsx";
 
-function Signup() {
+function Login() {
   return (
     <div className="main">
-      <h2>Start Shopping at Luna!</h2>
+      <h2>Welcome Back!</h2>
       <form action="">
-        <label htmlFor="first">First Name:</label>
-        <input type="text" id="first" name="first" required />
-
-        <label htmlFor="last">Last Name:</label>
-        <input type="text" id="last" name="last" required />
-
         <label htmlFor="email">Email:</label>
         <input type="email" id="email" name="email" required />
 
@@ -26,10 +20,9 @@ function Signup() {
           required
         />
 
-        <button type="submit">Signup</button>
+        <button type="submit">Login</button>
       </form>
-      <Iridescence />
     </div>
   );
 }
-export default Signup;
+export default Login;

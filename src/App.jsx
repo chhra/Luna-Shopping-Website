@@ -3,6 +3,7 @@ import Home from "./Home.jsx";
 import Iridescence from "./Iridescence.jsx";
 import Header from "./Header.jsx";
 import Signup from "./Signup.jsx";
+import Login from "./Login.jsx";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
 
       <Iridescence
