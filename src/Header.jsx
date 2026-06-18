@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import { Link, Links } from "react-router-dom";
 import { motion } from "framer-motion";
 
 function Header() {
@@ -9,35 +9,32 @@ function Header() {
       animate={{ y: -10 }}
       transition={{ duration: 1 }}
     >
+      <h1 className="HeaderLogo">
+        <i>Luna</i>
+      </h1>
       <nav>
         <ul>
-          <motion.li
-            whileHover={{
-              scale: 1.1,
-              textShadow: "0px 0px 8px #ff9ffc",
-            }}
-          >
-            {" "}
-            <a href="#about">About</a>
-          </motion.li>
-          <motion.li
-            whileHover={{
-              scale: 1.1,
-              textShadow: "0px 0px 8px #ff9ffc",
-            }}
-          >
-            <a href="#Education">Education</a>
-          </motion.li>
-          <motion.li
-            whileHover={{
-              scale: 1.1,
-
-              textShadow: "0px 0px 8px #ff9ffc",
-            }}
-          >
-            <a href="#Experience">Experience</a>
-          </motion.li>
-
+          <Link to="/">
+            <motion.li
+              whileHover={{
+                scale: 1.1,
+                textShadow: "0px 0px 8px #ff9ffc",
+              }}
+            >
+              {" "}
+              <a href="#about">About</a>
+            </motion.li>
+          </Link>
+          <Link to="/signup">
+            <motion.li
+              whileHover={{
+                scale: 1.1,
+                textShadow: "0px 0px 8px #ff9ffc",
+              }}
+            >
+              <a href="/signup">Sign up</a>
+            </motion.li>
+          </Link>
           <motion.li
             whileHover={{
               scale: 1.1,
@@ -45,7 +42,17 @@ function Header() {
               textShadow: "0px 0px 8px #ff9ffc",
             }}
           >
-            <a href="#skills">Skills</a>
+            <a href="#Login">Login</a>
+          </motion.li>
+
+          <motion.li
+            whileHover={{
+              scale: 1.1,
+
+              textShadow: "0px 0px 8px #ff9ffc",
+            }}
+          >
+            <a href="#wardrobe">Wardrobe</a>
           </motion.li>
         </ul>
       </nav>
