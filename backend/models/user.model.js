@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 import bcrypt from "bcrypt";
-const userSchema = new Schema(
+const userSchema = new mongoose.Schema(
   {
     username: {
       type: String,
@@ -31,15 +31,14 @@ const userSchema = new Schema(
 );
 
 // before saving any pw we need to hash it
-userSchema.pre("save", async function (next) {
-  if (!this.isModified("password")) return next();
+userSchema.pre("save", async function () {
+  if (!this.isModified("password")) return;
   this.password = await bcrypt.hash(this.password, 10);
-  next();
-
-  //compare paswords
-  userSchema.methods.comparePassword = async function (password) {
-    return await bcrypr.compare(password, this.password);
-  };
 });
+
+// compare passwords — must be a SEPARATE block, not inside pre("save")
+userSchema.methods.comparePassword = async function (password) {
+  return await bcrypt.compare(password, this.password);
+};
 
 export const User = mongoose.model("User", userSchema);

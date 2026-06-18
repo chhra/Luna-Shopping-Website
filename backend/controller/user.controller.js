@@ -53,16 +53,39 @@ const loginUser = async (req, res) => {
     res.status(200).json({
       messafe: "User Logged in",
       user: {
-        id: user_id,
+        id: user._id,
         email: user.email,
         username: user.username,
       },
     });
   } catch (error) {
-    (res,
-      status(500).json({
-        message: "Internal Server Error",
-      }));
+    console.log("LOGIN ERROR:", error); // ← prints the real cause to your terminal
+    res.status(500).json({
+      message: "Internal Server Error",
+      error: error.message, // ← sends it back in Postman too
+    });
   }
 };
-export { registerUser, loginUser };
+
+const logoutUser = async (req, res) => {
+  try {
+    const { email } = req.body;
+    const user = await User.findOne({
+      email,
+    });
+    if (!user)
+      return res.status(404).json({
+        messsage: "User not found",
+      });
+    res.status(200).json({
+      messsage: "Logout successful",
+    });
+  } catch (error) {
+    console.log("LOGIN ERROR:", error); // ← prints the real cause to your terminal
+    res.status(500).json({
+      message: "Internal Server Error",
+      error: error.message, // ← sends it back in Postman too
+    });
+  }
+};
+export { registerUser, loginUser, logoutUser };
