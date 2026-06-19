@@ -1,15 +1,19 @@
 import express from "express";
+import cors from "cors";
+import userRoutes from "../routes/user.route.js";
 
 const app = express();
+
+// CORS first, before any routes
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  }),
+);
+
 app.use(express.json());
+app.use("/api/v1/users", userRoutes);
 
-// routes import
-import userRouter from "../routes/user.route.js";
-
-// routes declaration
-app.use("/api/v1/users", userRouter);
-
-// example route : http://localhost:4000/api/v1/users/register
 export default app;
-
-// the app.js receives the request, import the routes and then the user path which is going to have all the routes for the user model

@@ -5,6 +5,8 @@ import Header from "./Header.jsx";
 import Signup from "./Signup.jsx";
 import Login from "./Login.jsx";
 import ProductList from "./ProductList.jsx";
+import ProtectedRoute from "./ProtectedRoute.jsx";
+import Cart from "./Cart.jsx";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -17,6 +19,14 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/shop" element={<ProductList />} />
+        <Route
+          path="/cart"
+          element={
+            <ProtectedRoute>
+              <Cart />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
       <Iridescence
         color={[0.5, 0.6, 0.8]}
