@@ -2,6 +2,8 @@ import dotenv from "dotenv";
 import connectDB from "../config/database.js";
 import app from "./app.js";
 import productRoutes from "../routes/product.route.js";
+import cors from "cors";
+app.use(cors());
 app.use("/api/v1/products", productRoutes);
 dotenv.config({
   path: "./.env",

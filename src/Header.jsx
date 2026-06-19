@@ -14,47 +14,28 @@ function Header() {
       </h1>
       <nav>
         <ul>
-          <Link to="/">
-            <motion.li
-              whileHover={{
-                scale: 1.1,
-                textShadow: "0px 0px 8px #ff9ffc",
-              }}
-            >
-              {" "}
-              <a href="#about">About</a>
-            </motion.li>
-          </Link>
-
-          <Link to="/signup">
-            <motion.li
-              whileHover={{
-                scale: 1.1,
-                textShadow: "0px 0px 8px #ff9ffc",
-              }}
-            >
-              <a href="/signup">Sign up</a>
-            </motion.li>
-          </Link>
-          <Link to="/Login">
-            <motion.li
-              whileHover={{
-                scale: 1.1,
-
-                textShadow: "0px 0px 8px #ff9ffc",
-              }}
-            >
-              <a href="/Login">Login</a>
-            </motion.li>
-          </Link>
           <motion.li
-            whileHover={{
-              scale: 1.1,
-
-              textShadow: "0px 0px 8px #ff9ffc",
-            }}
+            whileHover={{ scale: 1.1, textShadow: "0px 0px 8px #ff9ffc" }}
           >
-            <a href="#wardrobe">Wardrobe</a>
+            <a href="/">About</a>
+          </motion.li>
+
+          <motion.li
+            whileHover={{ scale: 1.1, textShadow: "0px 0px 8px #ff9ffc" }}
+          >
+            <Link to="/signup">Sign up</Link>
+          </motion.li>
+
+          <motion.li
+            whileHover={{ scale: 1.1, textShadow: "0px 0px 8px #ff9ffc" }}
+          >
+            <Link to="/Login">Login</Link>
+          </motion.li>
+
+          <motion.li
+            whileHover={{ scale: 1.1, textShadow: "0px 0px 8px #ff9ffc" }}
+          >
+            <a href="/shop">Wardrobe</a>
           </motion.li>
         </ul>
       </nav>

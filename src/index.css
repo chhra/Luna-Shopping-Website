@@ -123,3 +123,68 @@ form {
   border-radius: 20px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
+
+/*Product List styling*/
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 24px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #ff9ffc;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(255, 159, 252, 0.4);
+}
+
+.product-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.product-card h3 {
+  color: #ff9ffc;
+  font-size: 18px;
+  margin: 8px 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.product-card p {
+  color: #ff9ffc;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 4px 0 12px;
+}
+
+.product-card button {
+  margin-top: auto;
+  padding: 10px;
+  background: #ff9ffc;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.product-card button:hover {
+  background: #ff7ff9;
+}

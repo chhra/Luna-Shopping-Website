@@ -4,6 +4,7 @@ import Iridescence from "./Iridescence.jsx";
 import Header from "./Header.jsx";
 import Signup from "./Signup.jsx";
 import Login from "./Login.jsx";
+import ProductList from "./ProductList.jsx";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -15,8 +16,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/shop" element={<ProductList />} />
       </Routes>
-
       <Iridescence
         color={[0.5, 0.6, 0.8]}
         mouseReact
