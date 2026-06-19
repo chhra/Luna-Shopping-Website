@@ -1,25 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Iridescence from "./Iridescence.jsx";
 import Header from "./Header.jsx";
+import { useAuth } from "./contexts/AuthContext.jsx";
 
 function Login() {
+  const { login } = useAuth();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    try {
+      const res = await fetch("http://localhost:4000/api/v1/users/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
+      const data = await res.json();
+
+      if (res.ok) {
+        login(data.user); // ← store the logged-in user
+        navigate("/shop"); // success → send them to shop
+      } else {
+        setError(data.message); // show backend's error
+      }
+    } catch (err) {
+      setError("Something went wrong. Is the server running?");
+    }
+  };
   return (
     <div className="main">
       <h2>Welcome Back!</h2>
-      <form action="">
+      <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email:</label>
-        <input type="email" id="email" name="email" required />
+        <input
+          type="email"
+          id="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
 
         <label htmlFor="password">Password:</label>
         <input
           type="password"
           id="password"
-          name="password"
-          pattern="^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$"
-          title="Password must contain at least one number, one letter, one symbol, and be at least 8 characters long"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           required
         />
-
+        {error && <p style={{ color: "red" }}>{error}</p>}
         <button type="submit">Login</button>
       </form>
     </div>
