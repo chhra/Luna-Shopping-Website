@@ -1,7 +1,8 @@
 import { useProductsContext } from "./contexts/ProductsContext.jsx";
 
 function ProductList() {
-  const { products, addToCart, isInCart } = useProductsContext();
+  const { products, addToCart, removeFromCart, isInCart } =
+    useProductsContext();
 
   return (
     <div className="product-grid">
@@ -10,9 +11,12 @@ function ProductList() {
           <img src={product.image} alt={product.name} />
           <h3>{product.name}</h3>
           <p>DA{product.price}</p>
-          <button onClick={() => addToCart(product)}>
-            {isInCart(product) ? "In Cart" : "Add to Cart"}
-          </button>
+
+          {isInCart(product) ? (
+            <button onClick={() => removeFromCart(product)}>Remove</button>
+          ) : (
+            <button onClick={() => addToCart(product)}>Add to Cart</button>
+          )}
         </div>
       ))}
     </div>

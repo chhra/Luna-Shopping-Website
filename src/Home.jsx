@@ -13,7 +13,7 @@ function Home() {
         <i>Browse, choose, dream, wear</i>
       </p>
       <div className="ButtonContainer">
-        <Link to="/shop">
+        <Link to="/login">
           <button className="relative px-6 py-3 text semi bold text-pink-300 border-2 border-pink-300 overflow-hidden group rounded-xl cursor-pointer">
             <span
               className="absolute inset-0 w-full h-full bg-pink-300
@@ -26,7 +26,7 @@ function Home() {
             ></span>
             <span className="relative z-10 group-hover:text-white transition-colors duration-800">
               {" "}
-              Wardrobe
+              Login
             </span>
           </button>
         </Link>

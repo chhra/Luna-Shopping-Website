@@ -19,36 +19,16 @@ function ProductsContextProvider({ children }) {
   }, []); // empty array = run once on mount
 
   const isInCart = (product) => {
-    return cart.find((e) => e.id === product.id);
+    return cart.find((e) => e._id === product._id);
   };
 
   const addToCart = (product) => {
-    const cartProduct = cart.find((e) => e.id === product.id);
-    if (cartProduct) {
-      // make a new array, replacing the matching item with a NEW object
-      setCart(
-        cart.map((e) =>
-          e.id === product.id ? { ...e, count: e.count + 1 } : e,
-        ),
-      );
-    } else {
-      setCart([...cart, { ...product, count: 1 }]);
-    }
+    if (isInCart(product)) return; // already in cart, do nothing
+    setCart([...cart, product]); // just add it (no count needed)
   };
 
   const removeFromCart = (product) => {
-    const cartProduct = cart.find((e) => e.id === product.id);
-    if (!cartProduct) return;
-
-    if (cartProduct.count === 1) {
-      setCart(cart.filter((e) => e.id !== product.id));
-    } else {
-      setCart(
-        cart.map((e) =>
-          e.id === product.id ? { ...e, count: e.count - 1 } : e,
-        ),
-      );
-    }
+    setCart(cart.filter((e) => e._id !== product._id)); // remove it
   };
   const value = {
     products,

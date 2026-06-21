@@ -52,6 +52,11 @@ function Header() {
               <motion.li
                 whileHover={{ scale: 1.1, textShadow: "0px 0px 8px #ff9ffc" }}
               >
+                <a href="/cart">Cart</a>
+              </motion.li>
+              <motion.li
+                whileHover={{ scale: 1.1, textShadow: "0px 0px 8px #ff9ffc" }}
+              >
                 <button onClick={handleLogout}>Logout</button>
               </motion.li>
             </>

@@ -25,6 +25,7 @@ function Login() {
       const data = await res.json();
 
       if (res.ok) {
+        localStorage.setItem("token", data.token);
         login(data.user); // ← store the logged-in user
         navigate("/shop"); // success → send them to shop
       } else {
