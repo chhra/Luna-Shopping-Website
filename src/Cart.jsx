@@ -2,6 +2,7 @@ import { useProductsContext } from "./contexts/ProductsContext.jsx"; // adjust p
 
 function Cart() {
   const { cart, removeFromCart } = useProductsContext();
+  console.log("CART PAGE SEES:", cart); // ← add this
 
   const total = cart.reduce((sum, item) => sum + item.price, 0);
 
@@ -17,7 +18,7 @@ function Cart() {
           <img src={item.image} alt={item.name} />
           <div className="cart-item-info">
             <h3>{item.name}</h3>
-            <p>${item.price}</p>
+            <p>DA{item.price}</p>
           </div>
           <button className="remove-btn" onClick={() => removeFromCart(item)}>
             Remove

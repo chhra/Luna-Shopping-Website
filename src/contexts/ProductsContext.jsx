@@ -17,6 +17,7 @@ function ProductsContextProvider({ children }) {
       .then((data) => setProducts(data))
       .catch((err) => console.error("Failed to load products:", err));
   }, []); // empty array = run once on mount
+  console.log("PROVIDER RENDERED, cart is:", cart);
 
   const isInCart = (product) => {
     return cart.find((e) => e._id === product._id);
@@ -24,6 +25,7 @@ function ProductsContextProvider({ children }) {
 
   const addToCart = (product) => {
     if (isInCart(product)) return; // already in cart, do nothing
+    console.log("ADD TO CART CALLED:", product); // ← add this
     setCart([...cart, product]); // just add it (no count needed)
   };
 

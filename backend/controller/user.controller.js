@@ -96,4 +96,7 @@ const logoutUser = async (req, res) => {
     });
   }
 };
+export const getMe = async (req, res) => {
+  res.status(200).json({ user: req.user });
+};
 export { registerUser, loginUser, logoutUser };
