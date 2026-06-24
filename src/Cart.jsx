@@ -16,10 +16,10 @@ function Cart() {
       {cart.map((item) => (
         <div key={item._id} className="cart-item">
           <img src={item.image} alt={item.name} />
-          <div className="cart-item-info">
-            <h3>{item.name}</h3>
-            <p>DA{item.price}</p>
-          </div>
+
+          <h3>{item.name}</h3>
+          <p>DA{item.price}</p>
+
           <button className="remove-btn" onClick={() => removeFromCart(item)}>
             Remove
           </button>
