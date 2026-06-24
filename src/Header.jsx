@@ -47,7 +47,7 @@ function Header() {
               <motion.li
                 whileHover={{ scale: 1.1, textShadow: "0px 0px 8px #ff9ffc" }}
               >
-                <a href="/shop">Wardrobe</a>
+                <Link to="/shop">Wardrobe</Link>
               </motion.li>
               <motion.li
                 whileHover={{ scale: 1.1, textShadow: "0px 0px 8px #ff9ffc" }}

@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { protect } from "../middleware/auth.middleware.js";
-
+import { sendOrder } from "../controller/mail.controller.js";
 import {
   loginUser,
   registerUser,
@@ -13,5 +13,6 @@ router.route("/register").post(registerUser);
 router.route("/login").post(loginUser);
 router.route("/logout").post(logoutUser);
 router.get("/me", protect, getMe);
+router.post("/order", sendOrder);
 
 export default router;

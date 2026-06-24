@@ -20,9 +20,12 @@ const registerUser = async (req, res) => {
       email: email.toLowerCase(),
       password,
     });
-
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+      expiresIn: "7d",
+    });
     res.status(201).json({
       message: "User registered",
+      token,
       user: { id: user._id, email: user.email, username: user.username },
     });
   } catch (error) {
@@ -64,6 +67,7 @@ const loginUser = async (req, res) => {
         id: user._id,
         email: user.email,
         username: user.username,
+        isAdmin: user.isAdmin,
       },
     });
   } catch (error) {

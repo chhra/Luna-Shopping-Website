@@ -1,4 +1,5 @@
 @import "tailwindcss";
+
 /*HEADER STYLING*/
 header {
   padding: 30px 40px;
@@ -12,18 +13,21 @@ header {
   font-family: Georgia, "Times New Roman", Times, serif;
   text-shadow: 0 0 10px #ff9ffc;
 }
+
 nav ul {
   list-style: none;
   display: flex;
   gap: 20px;
 }
 
+nav button,
 nav a {
   color: #ff9ffc;
   text-decoration: none;
   font-size: 16px;
 }
 
+nav button,
 nav a:hover {
   color: #ff9ffc;
 }
@@ -38,6 +42,8 @@ hr {
     transform: translateY(0);
   }
 }
+
+/*HOMEPAGE STYLING*/
 .Homecontainer {
   display: flex;
   flex-direction: column;
@@ -81,6 +87,7 @@ label {
   font-weight: bold;
 }
 input[type="text"],
+input[type="tel"],
 input[type="email"],
 input[type="password"],
 select {

@@ -2,17 +2,17 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Iridescence from "./Iridescence.jsx";
 import Header from "./Header.jsx";
-
+import { useAuth } from "./contexts/AuthContext.jsx";
 function Signup() {
   const navigate = useNavigate();
 
   // state to hold what the user types
-
   const [first, setFirst] = useState("");
   const [last, setLast] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const { login } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,6 +31,9 @@ function Signup() {
       const data = await res.json();
 
       if (res.ok) {
+        localStorage.setItem("token", data.token); // store token
+        login(data.user); // set auth state
+
         navigate("/shop"); // success → send them to shop
       } else {
         setError(data.message); // show backend's error
