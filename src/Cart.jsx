@@ -1,8 +1,9 @@
-import { useProductsContext } from "./contexts/ProductsContext.jsx"; // adjust path
+import { useProductsContext } from "./contexts/ProductsContext.jsx";
+import { Link } from "react-router-dom";
 
 function Cart() {
   const { cart, removeFromCart } = useProductsContext();
-  console.log("CART PAGE SEES:", cart); // ← add this
+  console.log("CART PAGE SEES:", cart);
 
   const total = cart.reduce((sum, item) => sum + item.price, 0);
 
@@ -26,6 +27,9 @@ function Cart() {
         </div>
       ))}
       <h3 className="cart-total">Total: DA{total}</h3>
+      <Link to="/validate">
+        <button className="remove-btn">Validate Details</button>
+      </Link>
     </div>
   );
 }

@@ -125,7 +125,12 @@ form {
 }
 
 /*Product List & Cart items styling*/
-
+.username {
+  color: #ff9ffc;
+  font-size: 28px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  margin-left: 20px;
+}
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));

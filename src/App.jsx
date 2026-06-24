@@ -7,6 +7,7 @@ import Login from "./Login.jsx";
 import ProductList from "./ProductList.jsx";
 import ProtectedRoute from "./ProtectedRoute.jsx";
 import Cart from "./Cart.jsx";
+import Validation from "./ValidateDetails.jsx";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/shop" element={<ProductList />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/validate" element={<Validation />} />
       </Routes>
       <Iridescence
         color={[0.5, 0.6, 0.8]}
