@@ -7,9 +7,9 @@ const app = express();
 // CORS first, before any routes
 app.use(
   cors({
-    origin: "http://localhost:5175",
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    origin: "https://luna-shopping-website.vercel.app", // your actual Vercel URL
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
   }),
 );
 
