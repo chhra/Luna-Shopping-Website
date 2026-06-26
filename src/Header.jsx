@@ -26,7 +26,7 @@ function Header() {
           <motion.li
             whileHover={{ scale: 1.1, textShadow: "0px 0px 8px #ff9ffc" }}
           >
-            <a href="/">About</a>
+            <Link to="/">About</Link>
           </motion.li>
           {!user ? (
             <>
@@ -59,17 +59,16 @@ function Header() {
               >
                 <motion.button onClick={handleLogout}>Logout</motion.button>
               </motion.li>
-              {user &&
-                user.isAdmin && ( // ← only show if logged in AND admin
-                  <motion.li
-                    whileHover={{
-                      scale: 1.1,
-                      textShadow: "0px 0px 8px #ff9ffc",
-                    }}
-                  >
-                    <Link to="/admin">Dashboard</Link>
-                  </motion.li>
-                )}
+              {user && user.isAdmin && (
+                <motion.li
+                  whileHover={{
+                    scale: 1.1,
+                    textShadow: "0px 0px 8px #ff9ffc",
+                  }}
+                >
+                  <Link to="/admin">Dashboard</Link>
+                </motion.li>
+              )}
             </>
           )}
         </ul>

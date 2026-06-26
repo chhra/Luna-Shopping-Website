@@ -24,8 +24,8 @@ function Validation() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          ...form, // the customer's contact info
-          items: cart, // ← the clothes they're buying
+          ...form,
+          items: cart,
         }),
       });
       if (res.ok) {

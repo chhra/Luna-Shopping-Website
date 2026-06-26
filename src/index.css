@@ -76,7 +76,41 @@ hr {
   justify-content: space-around;
   gap: 24px;
 }
-
+.about {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 200px;
+  padding: 40px;
+}
+.social-icons {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+.social-icons img {
+  height: 400px;
+  width: 300px;
+  border-radius: 20px;
+}
+.about h2 {
+  color: #ff9ffc;
+  text-shadow: 0 0 10px #ff9ffc;
+  font-size: 38px;
+  font-weight: bold;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-align: left;
+  margin: 0;
+}
+@media (max-width: 480px) {
+  .about {
+    flex-direction: column; /* stack title above image on phones */
+    gap: 20px;
+  }
+}
 /*REGISTRATION FORM STYLING*/
 
 .main h2,
@@ -253,6 +287,7 @@ form {
   font-size: 20px;
   font-weight: bold;
 }
+
 /*ADMIN DASHBOARD*/
 .admin-dashboard {
   max-width: 1000px;
@@ -339,6 +374,7 @@ form {
   background: #ccc;
   cursor: not-allowed;
 }
+
 /* ============================================
    MOBILE RESPONSIVENESS
    ============================================ */

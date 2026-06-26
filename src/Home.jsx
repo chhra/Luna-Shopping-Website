@@ -5,12 +5,23 @@ import { useAuth } from "./contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 function Home() {
-  const { user } = useAuth(); // ← ADD THIS
-
+  const { user } = useAuth();
+  const imgVariant = {
+    hover: {
+      scale: 1.1,
+      rotate: 3,
+      boxShadow: "5px 5px 5px rgba(232, 43, 175, 0.114)",
+      transition: {
+        duration: 0.5,
+        type: "spring",
+        stiffness: 200,
+      },
+    },
+  };
   return (
     <div className="Homecontainer">
       <h1 className="HomeTitle">
-        <i>Your Dreamy Closet</i>
+        <i>Closet of Dreams</i>
       </h1>
       <p className="HomeText">
         <i>Browse, choose, dream, wear</i>
@@ -38,6 +49,31 @@ function Home() {
           </Link>
         </div>
       )}
+      <div className="about">
+        <h2>Follow us on Instagram & Tiktok!</h2>
+        <div className="social-icons">
+          <a
+            href="https://www.instagram.com/luna.s_outfits?igsh=dnBpZHJsdWE1Z2Nt&utm_source=qr"
+            target="_blank"
+          >
+            <motion.img
+              variants={imgVariant}
+              whileHover="hover"
+              src=".\public\images\insta.jpg"
+            />
+          </a>
+          <a
+            href="https://www.tiktok.com/@lunas.closet54?_r=1&_t=ZS-97X8udWi7gC"
+            target="_blank"
+          >
+            <motion.img
+              variants={imgVariant}
+              whileHover="hover"
+              src=".\public\images\tiktok.jpg"
+            />
+          </a>
+        </div>
+      </div>
     </div>
   );
 }
