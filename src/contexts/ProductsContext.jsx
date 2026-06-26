@@ -8,7 +8,10 @@ export const useProductsContext = () => {
 
 function ProductsContextProvider({ children }) {
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem("cart");
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
 
   // fetch real products from your backend when the app first loads
   useEffect(() => {
@@ -32,13 +35,21 @@ function ProductsContextProvider({ children }) {
   const removeFromCart = (product) => {
     setCart(cart.filter((e) => e._id !== product._id)); // remove it
   };
+  const clearCart = () => {
+    setCart([]);
+  };
   const value = {
     products,
+    setProducts,
     cart,
     addToCart,
     removeFromCart,
     isInCart,
+    clearCart,
   };
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
   return (
     <ProductsContext.Provider value={value}>
       {children}

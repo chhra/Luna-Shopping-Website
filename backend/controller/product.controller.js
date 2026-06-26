@@ -31,3 +31,15 @@ export const updateProduct = async (req, res) => {
     res.status(500).json({ message: "Server error", error: error.message });
   }
 };
+export const markAsSold = async (req, res) => {
+  try {
+    const product = await Product.findByIdAndUpdate(
+      req.params.id,
+      { inStock: false },
+      { new: true },
+    );
+    res.status(200).json(product);
+  } catch (error) {
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+};

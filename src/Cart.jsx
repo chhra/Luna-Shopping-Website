@@ -8,7 +8,7 @@ function Cart() {
   const total = cart.reduce((sum, item) => sum + item.price, 0);
 
   if (cart.length === 0) {
-    return <p className="empty-cart">Your cart is empty</p>;
+    return <p className="empty-cart">Your cart is empty!</p>;
   }
 
   return (

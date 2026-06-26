@@ -2,6 +2,10 @@ import dotenv from "dotenv";
 import connectDB from "../config/database.js";
 import app from "./app.js";
 import productRoutes from "../routes/product.route.js";
+import dns from "dns";
+//change DNS
+// change DNS
+dns.setServers(["1.1.1.1", "8.8.8.8"]);
 
 dotenv.config({ path: "./.env" });
 

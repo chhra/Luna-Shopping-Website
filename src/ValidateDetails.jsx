@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 import { useProductsContext } from "./contexts/ProductsContext.jsx";
 function Validation() {
-  const { cart } = useProductsContext();
+  const navigate = useNavigate();
+  const { cart, clearCart } = useProductsContext();
   const [form, setForm] = useState({
     first: "",
     last: "",
@@ -29,11 +30,13 @@ function Validation() {
       });
       if (res.ok) {
         setStatus("Order confirmed! We'll be in touch.");
+        clearCart();
+        navigate("/shop");
       } else {
         setStatus("Something went wrong. Please try again.");
       }
     } catch (err) {
-      setStatus("Something went wrong. Is the server running?");
+      setStatus("Something went wrong. Contact page owner for help");
     }
   };
 

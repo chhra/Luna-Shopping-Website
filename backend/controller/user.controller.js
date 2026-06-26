@@ -71,11 +71,11 @@ const loginUser = async (req, res) => {
       },
     });
   } catch (error) {
-    console.log("LOGIN ERROR:", error); // ← prints the real cause to your terminal
-    res.status(500).json({
-      message: "Internal Server Error",
-      error: error.message, // ← sends it back in Postman too
-    });
+    console.log("LOGIN ERROR:", error); // ← prints the real cause to terminal
+    res
+      .status(500)
+      .json({ message: "Internal Server Error", error: error.message });
+    console.log("JWT_SECRET exists:", !!process.env.JWT_SECRET);
   }
 };
 
@@ -100,7 +100,7 @@ const logoutUser = async (req, res) => {
     });
   }
 };
-export const getMe = async (req, res) => {
+const getMe = async (req, res) => {
   res.status(200).json({ user: req.user });
 };
-export { registerUser, loginUser, logoutUser };
+export { registerUser, loginUser, logoutUser, getMe };

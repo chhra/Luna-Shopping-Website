@@ -8,6 +8,8 @@ import ProductList from "./ProductList.jsx";
 import ProtectedRoute from "./ProtectedRoute.jsx";
 import Cart from "./Cart.jsx";
 import Validation from "./ValidateDetails.jsx";
+import AdminRoute from "./AdminRoute.jsx";
+import AdminDashboard from "./AdminDashboard.jsx";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -22,6 +24,14 @@ function App() {
         <Route path="/shop" element={<ProductList />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/validate" element={<Validation />} />
+        <Route
+          path="/admin"
+          element={
+            <AdminRoute>
+              <AdminDashboard />
+            </AdminRoute>
+          }
+        />
       </Routes>
       <Iridescence
         color={[0.5, 0.6, 0.8]}
