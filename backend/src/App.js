@@ -10,7 +10,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "http://localhost:5175",
-      "https://luna-shopping-website.vercel.app/", // ← your live frontend
+      "https://luna-shopping-website.vercel.app", // ← your live frontend
     ],
     credentials: true,
   }),
