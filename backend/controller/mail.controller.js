@@ -1,5 +1,5 @@
 import nodemailer from "nodemailer";
-
+import dns from "dns";
 export const sendOrder = async (req, res) => {
   console.log("EMAIL_USER:", process.env.EMAIL_USER); // check this
   console.log("EMAIL_PASS exists:", !!process.env.EMAIL_PASS); // true/false
