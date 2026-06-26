@@ -1,41 +1,26 @@
-import nodemailer from "nodemailer";
-import dns from "dns";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+
 export const sendOrder = async (req, res) => {
-  console.log("EMAIL_USER:", process.env.EMAIL_USER); // check this
-  console.log("EMAIL_PASS exists:", !!process.env.EMAIL_PASS); // true/false
   const { first, last, email, phone, address, items } = req.body;
 
-  try {
-    // set up the email sender (using Gmail as an example)
-    const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 587,
-      secure: false,
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-      // force IPv4 resolution for the connection
-      lookup: (hostname, options, callback) => {
-        dns.lookup(hostname, { family: 4 }, callback);
-      },
-    });
+  const itemsList = items
+    .map((item) => `- ${item.name} (DA${item.price})`)
+    .join("\n");
+  const total = items.reduce((sum, item) => sum + item.price, 0);
 
-    // compose and send the email to yourself (the owner)
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER, // sending to yourself, the owner
+  try {
+    await resend.emails.send({
+      from: "onboarding@resend.dev", // Resend's test sender — works immediately
+      to: process.env.EMAIL_USER, // your email (where orders go)
       subject: `New Order from ${first} ${last}`,
-      text: `
-        Name: ${first} ${last}
-        Email: ${email}
-        Phone: ${phone}
-        Address: ${address}
-      `,
+      text: `New order!\n\nName: ${first} ${last}\nEmail: ${email}\nPhone: ${phone}\nAddress: ${address}\n\nItems:\n${itemsList}\n\nTotal: DA${total}`,
     });
 
     res.status(200).json({ message: "Order sent successfully" });
   } catch (error) {
+    console.log("ORDER ERROR:", error);
     res
       .status(500)
       .json({ message: "Failed to send order", error: error.message });
