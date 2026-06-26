@@ -15,7 +15,10 @@ export const sendOrder = async (req, res) => {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
-      family: 4, // force IPv4
+      // force IPv4 resolution for the connection
+      lookup: (hostname, options, callback) => {
+        dns.lookup(hostname, { family: 4 }, callback);
+      },
     });
 
     // compose and send the email to yourself (the owner)
