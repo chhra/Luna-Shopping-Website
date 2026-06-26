@@ -8,12 +8,14 @@ export const sendOrder = async (req, res) => {
   try {
     // set up the email sender (using Gmail as an example)
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
       auth: {
-        user: process.env.EMAIL_USER, // your email
-        pass: process.env.EMAIL_PASS, // an app password (see below)
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
-      family: 4,
+      family: 4, // force IPv4
     });
 
     // compose and send the email to yourself (the owner)
