@@ -7,6 +7,7 @@ export const useProductsContext = () => {
 };
 
 function ProductsContextProvider({ children }) {
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:4000";
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState(() => {
     const savedCart = localStorage.getItem("cart");
@@ -15,7 +16,7 @@ function ProductsContextProvider({ children }) {
 
   // fetch real products from your backend when the app first loads
   useEffect(() => {
-    fetch("http://localhost:4000/api/v1/products")
+    fetch(`${API_URL}/api/v1/products`)
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .catch((err) => console.error("Failed to load products:", err));
