@@ -6,7 +6,7 @@ import dns from "dns";
 //change DNS
 // change DNS
 dns.setServers(["1.1.1.1", "8.8.8.8"]);
-
+dns.setDefaultResultOrder("ipv4first");
 dotenv.config({ path: "./.env" });
 
 app.use("/api/v1/products", productRoutes);
