@@ -13,6 +13,7 @@ export const sendOrder = async (req, res) => {
         user: process.env.EMAIL_USER, // your email
         pass: process.env.EMAIL_PASS, // an app password (see below)
       },
+      family: 4,
     });
 
     // compose and send the email to yourself (the owner)
