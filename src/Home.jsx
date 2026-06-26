@@ -59,7 +59,7 @@ function Home() {
             <motion.img
               variants={imgVariant}
               whileHover="hover"
-              src=".\public\images\insta.jpg"
+              src="/images/insta.jpg"
             />
           </a>
           <a
@@ -69,7 +69,7 @@ function Home() {
             <motion.img
               variants={imgVariant}
               whileHover="hover"
-              src=".\public\images\tiktok.jpg"
+              src="/images/tiktok.jpg"
             />
           </a>
         </div>
