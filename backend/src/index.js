@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import connectDB from "../config/database.js";
-import app from "./app.js";
+import app from "./App.js";
 import productRoutes from "../routes/product.route.js";
 import dns from "dns";
 //change DNS
